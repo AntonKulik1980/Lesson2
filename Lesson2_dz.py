@@ -1,6 +1,7 @@
 # Task 1
 
 class Cars:
+    wheels = 4
 
     def __init__(self, hp, torq, fuel_cons):
         self.hp = hp
@@ -17,6 +18,7 @@ class Cars:
 
 
 class Trucks(Cars):
+    wheels = 8
 
     def __init__(self, hp, torq, fuel_cons, cargo):
         self.hp = hp
@@ -35,6 +37,7 @@ class Trucks(Cars):
 
 
 class Sportcars(Cars):
+    wheels = 4
 
     def acs(self, sec):
         self.sec = sec
@@ -82,7 +85,6 @@ class shop():
         shop.added += self.items
         print(self.sales)
 
-
     def tot_sales(shop):
         print(shop.added)
 
@@ -95,3 +97,68 @@ print(shop2.sales)
 print(shop2.sale(10))
 # print(shop2.sale(15))
 tot_sales()
+
+
+# Создать класс точки, реализовать конструктор который
+# инициализирует 3 координаты (x, y, z).Реалзиовать методы для
+# получения и изменения каждой из координат. Перегрузить для этого
+# класса методы сложения, вычитания, деления умножения.
+# Перегрузить один любой унарный метод.
+# Ожидаемый результат: умножаю точку с координатами 1,2,3 на
+# другую точку с такими же координатами, получаю результат 1, 4, 9.
+
+class point():
+
+    def __init__(self, x, y, z):
+        self.x = x
+        self.y = y
+        self.z = z
+
+    def get_x(self):
+        return self.x
+
+    def set_x(self, value):
+        self.x = value
+
+    def get_y(self):
+        return self.y
+
+    def set_y(self, value):
+        self.y = value
+
+    def get_z(self):
+        return self.z
+
+    def set_z(self, value):
+        self.z = value
+
+
+    def __add__(self,other):
+        new_x = self.x + other.x
+        new_y = self.y + other.y
+        new_z = self.z + other.z
+        return print(new_x,new_y,new_z)
+
+    def __mul__(self,other):
+        new_x = self.x * other.x
+        new_y = self.y * other.y
+        new_z = self.z * other.z
+        return print(new_x,new_y,new_z)
+
+
+    def __sub__(self,other):
+        new_x = self.x - other.x
+        new_y = self.y - other.y
+        new_z = self.z - other.z
+        return print(new_x,new_y,new_z)
+
+    def __truediv__(self, other):
+        new_x = self.x / other.x
+        new_y = self.y / other.y
+        new_z = self.z / other.z
+        return print(new_x,new_y,new_z)
+
+point1 = point(1,2,3)
+point2 = point(1,2,3)
+add = point1*point2
+print(add)
