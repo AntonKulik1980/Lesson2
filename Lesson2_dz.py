@@ -108,6 +108,7 @@ tot_sales()
 # другую точку с такими же координатами, получаю результат 1, 4, 9.
 
 class point():
+    point: int
 
     def __init__(self, x, y, z):
         self.x = x
@@ -137,28 +138,31 @@ class point():
         new_x = self.x + other.x
         new_y = self.y + other.y
         new_z = self.z + other.z
-        return print(new_x,new_y,new_z)
+        return point(new_x,new_y,new_z)
 
     def __mul__(self,other):
         new_x = self.x * other.x
         new_y = self.y * other.y
         new_z = self.z * other.z
-        return print(new_x,new_y,new_z)
+        return point(new_x, new_y, new_z)
 
 
     def __sub__(self,other):
         new_x = self.x - other.x
         new_y = self.y - other.y
         new_z = self.z - other.z
-        return print(new_x,new_y,new_z)
+        return point(new_x, new_y, new_z)
 
     def __truediv__(self, other):
         new_x = self.x / other.x
         new_y = self.y / other.y
         new_z = self.z / other.z
-        return print(new_x,new_y,new_z)
+        return point(new_x, new_y, new_z)
 
 point1 = point(1,2,3)
 point2 = point(1,2,3)
-add = point1*point2
-print(add)
+point3 = point(3,4,5)
+add = point1*point2*point3
+print(add.get_x())
+print(add.get_y())
+print(add.get_z())
